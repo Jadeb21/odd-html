@@ -98,9 +98,21 @@
                 <input type="checkbox" value="checkbox1" id="qBa">a) Que la mer peut donner plein d'énergie naturelle<br>
                 <input type="checkbox" value="checkbox2" id="qBb">b) Que la mer est magique<br>
                 <input type="checkbox" value="checkbox3" id="qBc">c) Que les coquillages sont des téléphones<br><br>
-              
-        
             </fieldset>
+            <button type="button" class="quiz" onclick="submitQuiz()">Envoyer</button>
+            <div id="resultat"></div>
+            <table id="scoreTable" border="1" style="display:none; margin-top: 20px; width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr>
+                        <th>Question</th>
+                        <th>Votre réponse</th>
+                        <th>Bonne réponse</th>
+                        <th>Résultat</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+
         <canvas id="myCanvas"></canvas>
         <footer>
             <div>
@@ -110,5 +122,6 @@
             </div>
         </footer>
         <script src="style.js"></script>
+
     </body>
 </html>
