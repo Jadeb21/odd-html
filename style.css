@@ -1,39 +1,52 @@
 body {
     background-color: lightskyblue;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-header h1 {
-    font-size: 80px;
-}
-
+header h1,
 footer {
-    font-size: 30px;
-}
-
-footer, header h1 {
     display: flex;
     justify-content: center;
-    align-items: center; /* Ajouté pour un meilleur centrage vertical */
+    align-items: center;
     text-align: center;
     background-image: url("https://static.vecteezy.com/system/resources/previews/036/179/248/non_2x/underwater-ocean-life-dolphin-exotic-fishes-and-crab-squid-bottom-seaweeds-sea-turtle-and-marine-reef-animals-cartoon-seascape-vector.jpg");
-    background-size: cover; /* "stretch" n’est pas une valeur CSS valide — utiliser "cover" ou "contain" */
+    background-size: cover;
     background-position: center;
     color: orange;
     padding: 100px;
     margin: 0;
     border-radius: 40px;
+    text-shadow:
+        -1px -1px 0 black,
+        1px -1px 0 black,
+        -1px  1px 0 black,
+        1px  1px 0 black;
+    -webkit-text-stroke: 1px black;
+}
+
+header h1 {
+    font-size: clamp(80px, 100px, 120px);
+    height: 70vh;
+}
+
+footer {
+    font-size: clamp(60px, 70px, 80px);
 }
 
 a {
-    text-decoration: none; 
+    text-decoration: none;
     border-radius: 30px;
-    color: red;
+    color: orange;
+    display: inline-block;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 a:hover {
     background-color: orange;
     color: blue;
-    border-radius: 20px;
 }
 
 .barre {
@@ -42,11 +55,14 @@ a:hover {
     color: white;
     text-align: center;
     border-radius: 15px;
+    border-collapse: collapse;
 }
 
 .barre td {
-    padding: 7px;
+    width: 33%;
+    padding: 0;
     border-right: 1px solid #555;
+    font-size: clamp(14px, 26px, 38px);
 }
 
 .barre td:last-child {
@@ -56,18 +72,101 @@ a:hover {
 .barre a {
     color: white;
     text-decoration: none;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 .barre a:hover {
     background-color: #555;
 }
 
-
 .cadre {
-      border: 2px solid black;  
-      padding: 10px;             
-      margin: 20px;              
-      border-radius: 10px;       
-      background-color: cadetblue; 
-    }
+    border: 2px solid black;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: cadetblue;
+}
+
+.quiz {
+    background-color: #f0f8ff;
+    border: 2px solid #00bfff;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
+}
+
+button.quiz {
+    background-color: #00bfff;
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+button.quiz:hover {
+    background-color: #009acd;
+}
+
+#startBtn {
+    background-color: #00bfff;
+    color: white;
+    font-size: 1.4rem;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 50px auto;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+#startBtn:hover {
+    background-color: #009acd;
+}
+
+
+.score-table {
+    width: 80%;
+    margin: 40px auto;
+    border-collapse: collapse;
+    background-color: #e0f7fa;
+    border: 2px solid #00bcd4;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+    font-family: Arial, sans-serif;
+}
+
+.score-table thead {
+    background-color: #00bcd4;
+    color: white;
+}
+
+.score-table th,
+.score-table td {
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #b2ebf2;
+}
+
+.score-table tbody tr:nth-child(even) {
+    background-color: #f1fafa;
+}
+
+.score-table tbody tr:hover {
+    background-color: #b2ebf2;
+    color: #004d40;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}

@@ -102,19 +102,16 @@
  
             </fieldset>
             <button type="button" class="quiz" onclick="submitQuiz()">Envoyer</button>
-            <div id="resultat"></div>
-            <table id="scoreTable" border="1" style="display:none; margin-top: 20px;">
-            <thead>
-                <tr>
-                    <th>Question</th>
-                    <th>Votre réponse</th>
-                    <th>Bonne réponse</th>
-                    <th>Résultat</th>
-                </tr>
-            </thead>
-            <tbody id="tableBody"></tbody>
+            <table class="score-table">
+                <thead>
+                    <tr>
+                        <th>Essais</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="scoreBody">
+                </tbody>
             </table>
-            </div>
         <canvas id="myCanvas"></canvas>
         <footer>
             <div>
