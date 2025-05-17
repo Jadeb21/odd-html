@@ -1,5 +1,13 @@
+
+console.log("JS chargé !");
+
+
+function startQuiz() {
+    document.getElementById("startBtn").style.display = "none"; // Cache le bouton
+    document.getElementById("quizContainer").style.display = "block"; // Affiche le quiz
+}
+
 function submitQuiz() {
-    // Tableau des bonnes réponses
     const bonnesReponses = {
         q1: "q1a",
         q2: "q2a",
@@ -11,14 +19,13 @@ function submitQuiz() {
         q8: ["q8a", "q8b"],
         q9: ["q9a", "q9b"],
         q10: ["q10a", "q10b", "q10c"],
-        qB: ["qBa"] // bonus
+        qB: ["qBa", "qBb"] 
     };
 
     let score = 0;
-    let total = 11; // 10 questions + 1 bonus
+    let total = 11; 
     let erreurs = [];
 
-    // Fonction pour vérifier les réponses uniques (radio)
     function checkRadio(question, bonneId) {
         const selected = document.querySelector(`input[name=${question}]:checked`);
         if (selected && selected.id === bonneId) {
@@ -29,13 +36,16 @@ function submitQuiz() {
         }
     }
 
-    // Fonction pour vérifier les réponses multiples (checkbox)
     function checkCheckbox(bonnesIds) {
-        return bonnesIds.every(id => document.getElementById(id)?.checked) &&
-               document.querySelectorAll(`input[type=checkbox]:checked`).length === bonnesIds.length;
-    }
+    const prefix = bonnesIds[0].slice(0, 2);
+    const checkboxes = Array.from(document.querySelectorAll(`input[type="checkbox"][id^=${prefix}]`));
+    const cochés = checkboxes.filter(cb => cb.checked).map(cb => cb.id);
+    cochés.sort();
+    bonnesIds.sort();
+    return JSON.stringify(cochés) === JSON.stringify(bonnesIds);
+}
 
-    // Vérification
+
     if (checkRadio("q1", bonnesReponses.q1)) score++;
     if (checkRadio("q2", bonnesReponses.q2)) score++;
     if (checkRadio("q3", bonnesReponses.q3)) score++;
@@ -54,11 +64,11 @@ function submitQuiz() {
     if (checkCheckbox(bonnesReponses.qB)) score++;
     else erreurs.push("qB");
 
-    // Affichage du score
     alert(`Tu as obtenu ${score}/${total} !`);
 
-    // Optionnel : afficher les questions où tu t’es trompé
     if (erreurs.length > 0) {
         alert("Tu t'es trompé sur : " + erreurs.join(", "));
     }
 }
+
+
