@@ -1,107 +1,122 @@
 <!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Projet</title>
-        <link rel="stylesheet" href="../css/style.css">
-    </head>
-    <body>
-        <header>
-            <div></div>
-            <h1>Entraine-toi !</h1>
-            <table class="barre">
-                <tr>
-                    <nav>
-                        <td><a href="./accueil.html">Accueil</a></td>
-                        <td><a href="./histoire.html">Histoire de Léon</a></td>
-                        <td><a href="./marins.html">Tous savoir sur les énergies maritimes</a></td>
-                    </nav>
-                </tr>
-            </table>
-        </header>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projet</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Entraîne-toi !</h1>
+        <nav class="barre">
+            <a href="./accueil.html">Accueil</a>
+            <a href="./histoire.html">Histoire de Léon</a>
+            <a href="./marins.html">Tout savoir sur les énergies maritimes</a>
+        </nav>
+    </header>
 
+    <main>
         <h2>Voyons si tu as retenu tout ce que nous avons vu ensemble !</h2>
-        
+
         <button id="startBtn" onclick="startQuiz()">Commencer le quiz</button>
 
         <div id="quizContainer" style="display: none;">
             <fieldset class="quiz">
                 <legend>Quiz sur les énergies maritimes</legend>
-                    <h5>Répond à ce quiz pour tester tes connaissances, les questions peuvent comporter plusieurs réponses (carré) ou qu'une seule (rond) !</h5><br><br>
+                <h5>Réponds à ce quiz pour tester tes connaissances, les questions peuvent comporter plusieurs réponses (carré) ou qu'une seule (rond) !</h5><br><br>
 
-                        <label>1. Où se passe l'histoire de Léon ?</label><br><br>
-                        <input type="radio" value="radio1" id="q1a" name="q1">
-                        <label for="q1a">a) Près de la mer</label><br>
-                        <input type="radio" value="radio2" id ="q1b" name="q1">
-                        <label for="q1b"> b) A la montagne</label><br>
-                        <input type="radio" value="radio3" id="q1c" name="q1">
-                        <label for="q1c">c) Dans une grande ville </label><br><br><br>
+                <label>1. Où se passe l'histoire de Léon ?</label><br><br>
+                <input type="radio" id="q1a" name="q1" value="radio1">
+                <label for="q1a">a) Près de la mer</label><br>
+                <input type="radio" id="q1b" name="q1" value="radio2">
+                <label for="q1b">b) À la montagne</label><br>
+                <input type="radio" id="q1c" name="q1" value="radio3">
+                <label for="q1c">c) Dans une grande ville</label><br><br><br>
 
-                        <label>2. <label>Que veut savoir Léon en regardant la mer ?</label><br><br>
-                        <input type="radio" value="radio1" id="q2a" name="q2">
-                        <label for="q2a">a) D'où vient l'énergie qui fait bouger l'eau</label><br>
-                        <input type="radio" value="radio2" id ="q2b" name="q2">
-                        <label for="q2b"> b) Pourquoi la mer est salée</label><br>
-                        <input type="radio" value="radio3" id="q2c" name="q2">
-                        <label for="q2c">c) Comment pêcher les poissons</label><br><br><br>
+                <label>2. Que veut savoir Léon en regardant la mer ?</label><br><br>
+                <input type="radio" id="q2a" name="q2" value="radio1">
+                <label for="q2a">a) D'où vient l'énergie qui fait bouger l'eau</label><br>
+                <input type="radio" id="q2b" name="q2" value="radio2">
+                <label for="q2b">b) Pourquoi la mer est salée</label><br>
+                <input type="radio" id="q2c" name="q2" value="radio3">
+                <label for="q2c">c) Comment pêcher les poissons</label><br><br><br>
 
-                        <label>3. A quoi sert une éolienne ?</label><br><br>
-                        <input type="radio" value="radio1" id="q3a" name="q3">
-                        <label for="q3a">a) A produire de l'électricité</label><br>
-                        <input type="radio" value="radio2" id ="q3b" name="q3">
-                        <label for="q3b"> b) A faire voler les oiseaux</label><br>
-                        <input type="radio" value="radio3" id="q3c" name="q3">
-                        <label for="q3c">c) A attraper le vent </label><br><br><br>
+                <label>3. À quoi sert une éolienne ?</label><br><br>
+                <input type="radio" id="q3a" name="q3" value="radio1">
+                <label for="q3a">a) À produire de l'électricité</label><br>
+                <input type="radio" id="q3b" name="q3" value="radio2">
+                <label for="q3b">b) À faire voler les oiseaux</label><br>
+                <input type="radio" id="q3c" name="q3" value="radio3">
+                <label for="q3c">c) À attraper le vent</label><br><br><br>
 
-                        <label>4. Pourquoi met-on des éoliennes offshore dans la mer ?</label><br><br>
-                        <input type="checkbox" value="checkbox1" id="q4a">a) Parce que le vent y est plus fort<br>
-                        <input type="checkbox" value="checkbox2" id="q4b">b) Parce que le vent est plus régulier<br>
-                        <input type="checkbox" value="checkbox3" id="q4c">c) Parce que les poissons les aiment<br><br><br>
+                <label>4. Pourquoi met-on des éoliennes offshore dans la mer ?</label><br><br>
+                <input type="checkbox" id="q4a" name="q4" value="checkbox1">
+                <label for="q4a">a) Parce que le vent y est plus fort</label><br>
+                <input type="checkbox" id="q4b" name="q4" value="checkbox2">
+                <label for="q4b">b) Parce que le vent est plus régulier</label><br>
+                <input type="checkbox" id="q4c" name="q4" value="checkbox3">
+                <label for="q4c">c) Parce que les poissons les aiment</label><br><br><br>
 
-                        <label>5. Où sont placées les éoliennes offshore ?</label><br><br>
-                        <input type="checkbox" value="checkbox1" id="q5a">a) Sur le fond de la mer<br>
-                        <input type="checkbox" value="checkbox2" id="q5b">b) Elles peuvent flotter<br>
-                        <input type="checkbox" value="checkbox3" id="q5c">c) Sur les bateaux<br><br><br>
-              
-                        <label>6. Qu'est-ce qui bouge les machines houlomotrices</label><br><br>
-                        <input type="radio" value="radio1" id="q6a" name="q6">
-                        <label for="q6a">a) Les vagues</label><br>
-                        <input type="radio" value="radio2" id ="q6b" name="q6">
-                        <label for="q6b"> b) Les baleines</label><br>
-                        <input type="radio" value="radio3" id="q6c" name="q6">
-                        <label for="q6c">c) Les plongeurs</label><br><br><br>
+                <label>5. Où sont placées les éoliennes offshore ?</label><br><br>
+                <input type="checkbox" id="q5a" name="q5" value="checkbox1">
+                <label for="q5a">a) Sur le fond de la mer</label><br>
+                <input type="checkbox" id="q5b" name="q5" value="checkbox2">
+                <label for="q5b">b) Elles peuvent flotter</label><br>
+                <input type="checkbox" id="q5c" name="q5" value="checkbox3">
+                <label for="q5c">c) Sur les bateaux</label><br><br><br>
 
-                        <label>7. Que produit l'énergie des vagues ?</label><br><br>
-                        <input type="radio" value="radio1" id="q7a" name="q7">
-                        <label for="q7a">a) De l'électricité</label><br>
-                        <input type="radio" value="radio2" id ="q7b" name="q7">
-                        <label for="q7b"> b) De la pluie</label><br>
-                        <input type="radio" value="radio3" id="q7c" name="q7">
-                        <label for="q7c">c) Du sable</label><br><br><br>
+                <label>6. Qu'est-ce qui bouge les machines houlomotrices ?</label><br><br>
+                <input type="radio" id="q6a" name="q6" value="radio1">
+                <label for="q6a">a) Les vagues</label><br>
+                <input type="radio" id="q6b" name="q6" value="radio2">
+                <label for="q6b">b) Les baleines</label><br>
+                <input type="radio" id="q6c" name="q6" value="radio3">
+                <label for="q6c">c) Les plongeurs</label><br><br><br>
 
-                        <label>8. Que faut-il pour utiliser l'énergie thermique des mers ?</label><br><br>
-                        <input type="checkbox" value="checkbox1" id="q8a">a) De l'eau chaude à la surface<br>
-                        <input type="checkbox" value="checkbox2" id="q8b">b) De l'eau froide dans les profondeurs<br>
-                        <input type="checkbox" value="checkbox3" id="q8c">c) Des glaçons<br><br><br>
+                <label>7. Que produit l'énergie des vagues ?</label><br><br>
+                <input type="radio" id="q7a" name="q7" value="radio1">
+                <label for="q7a">a) De l'électricité</label><br>
+                <input type="radio" id="q7b" name="q7" value="radio2">
+                <label for="q7b">b) De la pluie</label><br>
+                <input type="radio" id="q7c" name="q7" value="radio3">
+                <label for="q7c">c) Du sable</label><br><br><br>
 
-                        <label>9. Qu'est-ce que l'énergie osmotique utilise ?</label><br><br>
-                        <input type="checkbox" value="checkbox1" id="q9a">a) L'eau douce<br>
-                        <input type="checkbox" value="checkbox2" id="q9b">b) L'eau salée<br>
-                        <input type="checkbox" value="checkbox3" id="q9c">c) L'eau sucrée<br><br><br>
+                <label>8. Que faut-il pour utiliser l'énergie thermique des mers ?</label><br><br>
+                <input type="checkbox" id="q8a" name="q8" value="checkbox1">
+                <label for="q8a">a) De l'eau chaude à la surface</label><br>
+                <input type="checkbox" id="q8b" name="q8" value="checkbox2">
+                <label for="q8b">b) De l'eau froide dans les profondeurs</label><br>
+                <input type="checkbox" id="q8c" name="q8" value="checkbox3">
+                <label for="q8c">c) Des glaçons</label><br><br><br>
 
-                        <label>10. Que peuvent produire les microalgues ?</label><br><br>
-                        <input type="checkbox" value="checkbox1" id="q10a">a) Du carburant comme le biodiesel<br>
-                        <input type="checkbox" value="checkbox2" id="q10b">b) Du biogaz.<br>
-                        <input type="checkbox" value="checkbox3" id="q10c">c) De l'énergie renouvelable en capturant du CO₂<br><br><br>
+                <label>9. Qu'est-ce que l'énergie osmotique utilise ?</label><br><br>
+                <input type="checkbox" id="q9a" name="q9" value="checkbox1">
+                <label for="q9a">a) L'eau douce</label><br>
+                <input type="checkbox" id="q9b" name="q9" value="checkbox2">
+                <label for="q9b">b) L'eau salée</label><br>
+                <input type="checkbox" id="q9c" name="q9" value="checkbox3">
+                <label for="q9c">c) L'eau sucrée</label><br><br><br>
 
-                        <label>Bonus. Que découvre Léon à la fin de l'histoire ?</label><br><br>
-                        <input type="checkbox" value="checkbox1" id="qBa">a) Que la mer peut donner plein d'énergie naturelle<br>
-                        <input type="checkbox" value="checkbox2" id="qBb">b) Que la mer est magique<br>
-                        <input type="checkbox" value="checkbox3" id="qBc">c) Que les coquillages sont des téléphones<br><br><br>
- 
+                <label>10. Que peuvent produire les microalgues ?</label><br><br>
+                <input type="checkbox" id="q10a" name="q10" value="checkbox1">
+                <label for="q10a">a) Du carburant comme le biodiesel</label><br>
+                <input type="checkbox" id="q10b" name="q10" value="checkbox2">
+                <label for="q10b">b) Du biogaz</label><br>
+                <input type="checkbox" id="q10c" name="q10" value="checkbox3">
+                <label for="q10c">c) De l'énergie renouvelable en capturant du CO₂</label><br><br><br>
+
+                <label>Bonus. Que découvre Léon à la fin de l'histoire ?</label><br><br>
+                <input type="checkbox" id="qBa" name="bonus" value="checkbox1">
+                <label for="qBa">a) Que la mer peut donner plein d'énergie naturelle</label><br>
+                <input type="checkbox" id="qBb" name="bonus" value="checkbox2">
+                <label for="qBb">b) Que la mer est magique</label><br>
+                <input type="checkbox" id="qBc" name="bonus" value="checkbox3">
+                <label for="qBc">c) Que les coquillages sont des téléphones</label><br><br><br>
             </fieldset>
-            <button type="button" class="quiz" onclick="submitQuiz()">Envoyer</button>
+
+            <button type="button" id="submitBtn" class="quiz" onclick="submitQuiz()">Soumettre</button>
+
             <table class="score-table">
                 <thead>
                     <tr>
@@ -112,11 +127,18 @@
                 <tbody id="scoreBody">
                 </tbody>
             </table>
-        <canvas id="myCanvas"></canvas>
-        <footer>
-            <div>Tant que vous y êtes,<br><br><a href="./apropos.html"><b>Venez apprendre à nous connaître !</b></a></div>
-        </footer>
-        <script src="style.js"></script>
-        </p>
-    </body>
+
+            <canvas id="myCanvas"></canvas>
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            Tant que vous y êtes,<br><br>
+            <a href="./apropos.html"><b>Venez apprendre à nous connaître !</b></a>
+        </div>
+    </footer>
+
+    <script src="../js/style.js"></script>
+</body>
 </html>
