@@ -28,14 +28,14 @@ function submitQuiz() {
     let score = 0;
 
     // Questions simples (radio)
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= 3 ; i++) {
         const selected = document.querySelector(`input[name="q${i}"]:checked`);
         if (selected && selected.id === bonnesReponses[`q${i}`]) {
             score++;
         }
     }
 
-    // q6 et q7 (radio)
+    // suite q6 et q7 (radio)
     for (let i = 6; i <= 7; i++) {
         const selected = document.querySelector(`input[name="q${i}"]:checked`);
         if (selected && selected.id === bonnesReponses[`q${i}`]) {
@@ -74,84 +74,79 @@ function arraysEqual(a, b) {
 
 // ------------------------------
 // Animation médusas sur canvas
+window.addEventListener("DOMContentLoaded", () => {
+    const canvas = document.getElementById("medusasCanvas");
+    const ctx = canvas.getContext("2d");
 
-const canvas = document.getElementById('myCanvas');
-if (canvas) {
-    const ctx = canvas.getContext('2d');
-
-    let width, height;
     function resizeCanvas() {
-        width = window.innerWidth;
-        height = 200; // Hauteur fixe pour éviter que le canvas soit trop haut
-        canvas.width = width;
-        canvas.height = height;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     }
 
-    window.addEventListener('resize', resizeCanvas);
     resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
     class Medusa {
-        constructor(x, y, radius, speedY, wiggle, color) {
-            this.baseX = x;
-            this.x = x;
-            this.y = y;
-            this.radius = radius;
-            this.speedY = speedY;
-            this.wiggle = wiggle;
-            this.color = color;
-            this.angle = Math.random() * Math.PI * 2;
+        constructor() {
+            this.reset();
         }
 
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = canvas.height + Math.random() * canvas.height;
+            this.size = 30 + Math.random() * 40;
+            this.speed = 0.3 + Math.random() * 0.6;
+            this.swing = Math.random() * 0.02;
+            this.angle = Math.random() * Math.PI * 2;
+            this.opacity = 0.1 + Math.random() * 0.4;
+            this.color = `rgba(255, 255, 255, ${this.opacity})`; // blanc légèrement transparent
+        }
+        
+        // Anime la meduse
         update() {
-            this.y -= this.speedY;
-            this.angle += this.wiggle;
-            this.x = this.baseX + Math.sin(this.angle) * 10;
-            if (this.y + this.radius < 0) {
-                this.y = height + this.radius;
+            this.angle += this.swing;
+            this.y -= this.speed;
+            this.x += Math.sin(this.angle) * 0.5;
+
+            if (this.y + this.size < 0) {
+                this.reset();
+                this.y = canvas.height + this.size;
             }
         }
 
-        draw() {
+        draw(ctx) {
+            // Corps 
             ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI, true);
+            ctx.ellipse(this.x, this.y, this.size * 0.6, this.size * 0.4, 0, 0, Math.PI * 2);
             ctx.fillStyle = this.color;
             ctx.fill();
 
+            // Tentacules
             for (let i = -2; i <= 2; i++) {
                 ctx.beginPath();
-                ctx.moveTo(this.x + i * 5, this.y);
-                ctx.quadraticCurveTo(
-                    this.x + i * 5 + 2,
-                    this.y + this.radius * 1.5,
-                    this.x + i * 5,
-                    this.y + this.radius * 3
-                );
+                ctx.moveTo(this.x + i * 5, this.y + 5);
+                for (let j = 0; j < 10; j++) {
+                    const waveX = Math.sin(this.angle + j / 2 + i) * 2;
+                    ctx.lineTo(this.x + i * 5 + waveX, this.y + j * 6);
+                }
                 ctx.strokeStyle = this.color;
+                ctx.lineWidth = 1;
                 ctx.stroke();
             }
         }
     }
 
-    const medusas = [
-        { x: 355, y: 76, radius: 26, speedY: 0.62, wiggle: 0.047, color: "hsla(215, 100%, 70%, 0.5)" },
-        { x: 1118, y: 129, radius: 36, speedY: 0.87, wiggle: 0.044, color: "hsla(211, 100%, 70%, 0.5)" },
-        { x: 565, y: 346, radius: 31, speedY: 0.88, wiggle: 0.062, color: "hsla(202, 100%, 70%, 0.5)" },
-        { x: 836, y: 154, radius: 24, speedY: 0.34, wiggle: 0.052, color: "hsla(203, 100%, 70%, 0.5)" },
-        { x: 896, y: 425, radius: 34, speedY: 0.38, wiggle: 0.062, color: "hsla(183, 100%, 70%, 0.5)" },
-        { x: 1029, y: 219, radius: 37, speedY: 0.85, wiggle: 0.079, color: "hsla(183, 100%, 70%, 0.5)" },
-        { x: 699, y: 437, radius: 40, speedY: 0.63, wiggle: 0.044, color: "hsla(191, 100%, 70%, 0.5)" },
-        { x: 628, y: 779, radius: 30, speedY: 0.3, wiggle: 0.069, color: "hsla(183, 100%, 70%, 0.5)" },
-        { x: 336, y: 863, radius: 22, speedY: 0.39, wiggle: 0.039, color: "hsla(204, 100%, 70%, 0.5)" }
-    ].map(m => new Medusa(m.x, m.y, m.radius, m.speedY, m.wiggle, m.color));
+    const medusas = Array.from({ length: 25 }, () => new Medusa());
 
     function animate() {
-        ctx.clearRect(0, 0, width, height);
-        medusas.forEach(medusa => {
-            medusa.update();
-            medusa.draw();
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        medusas.forEach(m => {
+            m.update();
+            m.draw(ctx);
         });
         requestAnimationFrame(animate);
     }
 
     animate();
-}
+});
+

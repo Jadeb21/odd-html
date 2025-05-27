@@ -5,32 +5,47 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Projet</title>
         <link rel="stylesheet" href="../css/style.css">
+        <link rel="icon" href="../img/meduse.webp" type="image/png" sizes="16x16">
     </head>
     <body>
+            <canvas id="medusasCanvas"></canvas>
         <header>
             <h1><b>Venez découvrir comment<br>l'Homme a conquit le monde marin !</b></h1>
-            <nav class="barre">
-                <a href="./histoire.html">Histoire de Léon</a>
-                <a href="./marins.html">Tout savoir sur les énergies maritimes</a>
+            <nav class="barre" id="barre-top">
+                <a href="./histoire.html">L'histoire de Léon</a>
+                <a href="./marins.html">Les énergies maritimes</a>
                 <a href="./quiz.html">Entraîne-toi !</a>
             </nav>
         </header>
 
+    <div class="definition-cadre">
         <h2>Qu'est-ce qu'une énergie ?</h2>
-        <iframe width="560" 
-        height="315" 
-        src="https://www.youtube.com/embed/ZepcQLG_rVA?si=lIU9sYlxT_8LT1bx" 
-        title="YouTube video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-        referrerpolicy="strict-origin-when-cross-origin" 
+        <div id="video">
+        <iframe width="560"
+        height="315"
+        src="https://www.youtube.com/embed/ZepcQLG_rVA?si=lIU9sYlxT_8LT1bx"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
         allowfullscreen>
-    </iframe>
-    
-        <canvas id="myCanvas"></canvas>
+        </iframe>
+        </div>
+    </div>
+    <div class="definition-cadre">
+    <h2>Quelques définitions</h2>
+    <p>Le terme « énergies marines », également appelées « thalasso-énergies » et « énergies bleues », désigne toutes les formes d’exploitation des ressources renouvelables issues du milieu marin : marées, courants, vagues, chaleur, salinité, biomasse et vents.
+<br><br>La planète est recouverte à plus de 70% par les océans et les mers. Ceux-ci recèlent d’énormes quantités de flux énergétiques, qui ont deux origines :
+l’énergie solaire qui est à l’origine des vents, de la houle, des grands courants marins et des différences de température de la mer ;<br><br>
+la variation de la gravitation due aux positions respectives de la Terre, de la Lune et du Soleil qui engendrent les marées.
+<br><br>Dans la recherche de nouvelles sources d’énergie n’émettant pas de gaz à effet de serre, les énergies marines peuvent apporter une contribution à la diversification du bouquet énergétique mondial.</p></div>
+
         <footer>
-            <p>Tant que vous y êtes,<br><br><a href="./apropos.html"><b>Venez apprendre à nous connaître !</b></p></div>
+            <div><p><br>Tant que vous y êtes,<br><a href="./apropos.html" id="barre-bot" class="barre"><b>Venez apprendre à nous connaître !</b></a><br><p></div>
         </footer>
+        <script>
+            alert("Ce domaine a besoin d'internet pour charger certains contenus. Il est fortement recommandé de se connecter à un point de connexions à proximité fiable.")
+        </script>
         <script src="../js/style.js"></script>
     </body>
 </html>

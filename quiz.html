@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Projet</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../img/meduse.webp" type="image/png" sizes="16x16">
 </head>
 <body>
     <header>
+        <canvas id="medusasCanvas"></canvas>
         <h1>Entraîne-toi !</h1>
-        <nav class="barre">
+        <nav class="barre" id="barre-top">
             <a href="./accueil.html">Accueil</a>
-            <a href="./histoire.html">Histoire de Léon</a>
-            <a href="./marins.html">Tout savoir sur les énergies maritimes</a>
+            <a href="./histoire.html">L'histoire de Léon</a>
+            <a href="./marins.html">Les énergies maritimes</a>
         </nav>
     </header>
 
@@ -23,7 +25,7 @@
 
         <div id="quizContainer" style="display: none;">
             <fieldset class="quiz">
-                <legend>Quiz sur les énergies maritimes</legend>
+                <legend style="font-size: 24px" class="definition-cadre">Quiz sur les énergies maritimes</legend>
                 <h5>Réponds à ce quiz pour tester tes connaissances, les questions peuvent comporter plusieurs réponses (carré) ou qu'une seule (rond) !</h5><br><br>
 
                 <label>1. Où se passe l'histoire de Léon ?</label><br><br>
@@ -128,15 +130,11 @@
                 </tbody>
             </table>
 
-            <canvas id="myCanvas"></canvas>
         </div>
     </main>
 
     <footer>
-        <div>
-            Tant que vous y êtes,<br><br>
-            <a href="./apropos.html"><b>Venez apprendre à nous connaître !</b></a>
-        </div>
+        <div><p><br>Tant que vous y êtes,<br><a href="./apropos.html" id="barre-bot" class="barre"><b>Venez apprendre à nous connaître !</b></a><br><p></div>
     </footer>
 
     <script src="../js/style.js"></script>

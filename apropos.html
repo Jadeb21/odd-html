@@ -5,35 +5,77 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Projet</title>
         <link rel="stylesheet" href="../css/style.css">
+        <link rel="icon" href="../img/meduse.webp" type="image/png" sizes="16x16">
     </head>
     <body>
-
+        <canvas id="medusasCanvas"></canvas>
         <header>
             <h1><b>Qui sommes-nous ?</b></h1>
-            <nav class="barre">
-                <a href="./histoire.html">Histoire de Léon</a>
-                <a href="./marins.html">Tout savoir sur les énergies maritimes</a>
+            <nav class="barre" id="barre-top">
+                <a href="./histoire.html">L'histoire de Léon</a>
+                <a href="./marins.html">Les énergies maritimes</a>
                 <a href="./quiz.html">Entraîne-toi !</a>
             </nav>
         </header>
 
         <form>
-                    <fieldset>
-                        <legend>Identité</legend>
-                            <label>Brana Jade</label><br>
-                            <label>Qu Vincent</label><br>
-                    </fieldset>
-                    <fieldset>
-                        <legend>Description</legend>
-                            <label>Nous sommes étudiant en P2 à Efrei Paris dans la section Biologie et Numérique. </label><br>
-                            <label>Nous avons conçu ce site web pour permettre aux enfants de découvrir le monde marin, mais plus précisemment les énergies marines.</label>
-                            <label>L'idée de ce site web est parti de 2 interêts communs : pour Vincent l'<a href = "https://www.agenda-2030.fr/17-objectifs-de-developpement-durable/article/odd7-garantir-l-acces-de-tous-a-des-services-energetiques-fiables-durables-et"> Object du Développement Durable 7 </a> et pour Jade l'<a href = "https://www.agenda-2030.fr/17-objectifs-de-developpement-durable/article/odd14-conserver-et-exploiter-de-maniere-durable-les-oceans-les-mers-et-les"> Object du Développement Durable 14</a></label>
-                    </fieldset>
-                </form>
-        <canvas id="myCanvas"></canvas>
-        <footer>
-            <div>Retourner a l'ecran<br><br><a href="./accueil.html"><b>d' ACCUEIL?</b></a></div>
-        </footer>
-        <script src="../js/style.js"></script>
+            <fieldset>
+                <legend>Identité</legend>
+                    <label>Brana Jade</label><br>
+                    <label>Qu Vincent</label><br>
+            </fieldset>
+            <fieldset>
+                <legend>Description</legend>
+                    <label>Nous sommes étudiant en P2 à Efrei Paris dans la section Biologie et Numérique. </label><br>
+                    <label>Nous avons conçu ce site web pour permettre aux enfants de découvrir le monde marin, et plus précisemment les énergies marines.</label>
+                    <label>L'idée de ce site web est parti de 2 interêts communs : pour Vincent l'<a href = "https://www.agenda-2030.fr/17-objectifs-de-developpement-durable/article/odd7-garantir-l-acces-de-tous-a-des-services-energetiques-fiables-durables-et"> Object du Développement Durable 7 </a> et pour Jade l'<a href = "https://www.agenda-2030.fr/17-objectifs-de-developpement-durable/article/odd14-conserver-et-exploiter-de-maniere-durable-les-oceans-les-mers-et-les"> Object du Développement Durable 14</a></label>
+            </fieldset>
+            <fieldset>
+            <legend>Vos avis</legend>
+            <div class="commentaire"></div>
+            <label for="nom">Votre nom :</label><br>
+            <input type="text" id="pseudo" placeholder="Votre pseudo"><br><br>
+
+            <label for="avis">Votre avis :</label><br>
+                <textarea id="commentaire" placeholder="Commentaire..."></textarea><br>
+                <button onclick="envoyerAvis(event)">Envoyé</button>
+            </div><br><br>
+        </fieldset>
+    </form>
+
+    <fieldset id="listeAvis">
+        <legend>Avis déposés</legend>
+        <div class="avisListe" id="avisListe">
+            <div class="review"><strong>Sylvie</strong><p>Site très développé, super pour les enfants.</p></div>
+            <div class="review"><strong>Hannah</strong><p>J'ai adoré, surtout l'histoire de Léon.</p></div>
+            <div class="review"><strong>Luc</strong><p>Trop bien, j'ai appris plein de chose. </p></div>
+        </div>
+    </fieldset>
+
+    <footer>
+        <div><p><br>Retourner à l'écran<br><a href="./accueil.html" id="barre-bot" class="barre"><b>d'ACCUEIL?</b></a><br><p></div>
+    </footer>
+    <script src="../js/style.js"></script>
+
+    <div class="container">
+
+    <script>
+        function envoyerAvis(event) {
+        event.preventDefault();
+        const text = document.getElementById("commentaire").value.trim();
+        const pseudo = document.getElementById("pseudo").value.trim() || "Anonyme";
+
+        if (!text) return;
+
+        const newReview = document.createElement("div");
+        newReview.innerHTML = `<strong>${pseudo}</strong><p>${text}</p>`;
+        document.getElementById("avisListe").appendChild(newReview);
+
+        document.getElementById("commentaire").value = "";
+        document.getElementById("pseudo").value = "";
+    }
+
+
+    </script>
     </body>
 </html>
