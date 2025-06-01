@@ -1,0 +1,381 @@
+/* ---------- Base Styles ---------- */
+body {
+    background: linear-gradient(to bottom, #e0f7fa, #80deea);
+    color: #033e6b;
+    min-height: 100vh;
+    padding: 10px 20px;
+    line-height: 1.5;
+}
+
+/* ---------- Headings ---------- */
+h1 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: orange;
+    text-shadow:
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px  1px 0 black,
+    1px  1px 0 black;
+    -webkit-text-stroke: 0.5px black;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* ---------- Header & Footer ---------- */
+header,
+footer {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("https://static.vecteezy.com/system/resources/previews/036/179/248/non_2x/underwater-ocean-life-dolphin-exotic-fishes-and-crab-squid-bottom-seaweeds-sea-turtle-and-marine-reef-animals-cartoon-seascape-vector.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+header {
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    height: 50vh;
+}
+
+footer {
+    height: 25vh;
+    font-size: clamp(1rem, 3vw, 2rem);
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+/* ---------- Navigation Bar ---------- */
+#barre-top {
+    background: linear-gradient(to right, rgba(173, 232, 244, 0.8), rgba(129, 212, 250, 0.8));
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+#barre-bot {
+    border-radius: 15px;
+}
+
+.barre {
+    width: 100%;   
+    color: #033e6b;
+    font-size: clamp(1rem, 3vw, 2rem);
+    display: flex;
+    justify-content: space-around;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4px); /* effet vitré subtil */
+}
+
+.barre a {
+    flex: 1;
+    text-align: center;
+    color: #033e6b;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.6);
+    font-weight: bold;
+}
+
+.barre a:hover {
+    flex: 0 0 33%;
+    background: #b4d6eb;
+    color: white;
+    border-radius: 15px;
+}
+
+
+
+/* ---------- Footer Link ---------- */
+footer a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+footer a:hover {
+    color: white;
+    border-radius: 15px;
+}
+
+/* ---------- Quiz ---------- */
+
+
+.cadre {
+    border: 2px solid black;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color: #f0f8ff;
+}
+
+.quiz {
+    background-color: #f0f8ff;
+    border: 2px solid #00bfff;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
+}
+
+button.quiz {
+    background-color: #00bfff;
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    display: block;
+    margin: 30px auto 0 auto;
+}
+
+button.quiz:hover {
+    background-color: #009acd;
+}
+
+#startBtn {
+background-color: #00bfff;
+color: white;
+font-size: 1.4rem;
+padding: 15px 30px;
+border: none;
+border-radius: 30px;
+cursor: pointer;
+margin: 50px auto;
+display: block;
+transition: background-color 0.3s ease;
+}
+
+#startBtn:hover {
+background-color: #009acd;
+}
+
+/* ---------- Score ---------- */
+
+.score-table {
+    width: 80%;
+    margin: 40px auto;
+    border-collapse: collapse;
+    background-color: #e0f7fa;
+    border: 2px solid #00bcd4;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+    font-family: Arial, sans-serif;
+}
+
+.score-table thead {
+    background-color: #00bcd4;
+    color: white;
+}
+
+.score-table th,
+.score-table td {
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #b2ebf2;
+}
+
+.score-table tbody tr:nth-child(even) {
+    background-color: #f1fafa;
+}
+
+.score-table tbody tr:hover {
+    background-color: #b2ebf2;
+    color: #004d40;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+/* ---------- Définition ---------- */
+.definition-cadre {
+    border: 2px solid #0077b6; 
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: rgba(240, 248, 255, 0.8); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease;
+}
+
+.definition-cadre:hover {
+transform: scale(1.02); 
+}
+
+/* ---------- Méduse ---------- */
+
+#medusasCanvas {
+position: fixed;
+top: 0;
+left: 0;
+z-index: -1;
+width: 100%;
+height: 100%;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    color: #0077b6; /* couleur lien */
+    border-bottom: 1px dotted #0077b6;
+}
+
+.tooltip img {
+    visibility: hidden;
+    width: 400px;
+    position: absolute;
+    bottom: 125%; 
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: visibility 0.3s ease;
+    z-index: 10;
+}
+
+.tooltip:hover img {
+    visibility: visible;
+}
+
+#medusasCanvas {
+position: fixed;
+top: 0;
+left: 0;
+z-index: -1;
+width: 100vw;
+height: 100vh;
+pointer-events: none;
+background: linear-gradient(to bottom, #e0f7fa, #80deea); 
+}
+
+
+#video {
+    justify-content : center;
+    text-align : center;
+}
+
+
+
+
+/* ---------- Avis  ---------- */
+
+.avisListe {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.avis-bulle {
+    background-color: #e0f7fa;
+    border: 1.5px solid #00acc1;
+    border-radius: 12px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: #033e6b;
+    box-shadow: 0 2px 6px rgba(0, 172, 193, 0.2);
+    transition: transform 0.2s ease;
+}
+
+.avis-bulle:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(0, 172, 193, 0.3);
+}
+
+
+/* ---------- Mouette  ---------- */
+
+.mouette {
+  width: 100px;
+  position: absolute;
+  bottom: 20px;
+  left: 100px;
+  animation: dandinement 1s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes dandinement {
+  0%   { transform: rotate(0deg); }
+  25%  { transform: rotate(2deg); }
+  50%  { transform: rotate(0deg); }
+  75%  { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+
+
+/* ---------- Vagues mer  ---------- */
+#mer {
+  width: 100%;
+  height: 100px; 
+  display: block;
+}
+
+
+
+/* ---------- Eolienne  ---------- */
+
+.eolienne-container {
+    position: absolute;
+    right: 1;
+    top: 100px; 
+    width: 150px;
+    z-index: 10;
+}
+
+.mat {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.ailes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    transform-origin: 50% 32.5%; 
+}
+
+
+.eolienne-container.tourne .ailes,  .eolienne-container2.tourne .ailes{
+  animation: rotation 2s linear infinite;
+}
+
+@keyframes rotation {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
