@@ -31,3 +31,10 @@ Ce projet est une page web interactive combinant :
 
 - https://github.com/Jadeb21/odd-html.git
 
+## Outils
+
+- Canvas : pour la maquette
+- VSCode: pour coder le site
+- W3C : pour la vérification des pages HTML
+- Google image : pour toutes les images du fichier marins.html
+- Krita : pour séparer les ailes du mât de l'éolienne

@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,14 +32,15 @@
             </fieldset>
             <fieldset>
             <legend>Vos avis</legend>
-            <div class="commentaire"></div>
-            <label for="nom">Votre nom :</label><br>
-            <input type="text" id="pseudo" placeholder="Votre pseudo"><br><br>
+            <div class="commentaire">
+                <label for="pseudo">Votre nom :</label><br>
+                <input type="text" id="pseudo" placeholder="Votre pseudo"><br><br>
 
-            <label for="avis">Votre avis :</label><br>
+                <label for="commentaire">Votre avis :</label><br>
                 <textarea id="commentaire" placeholder="Commentaire..."></textarea><br>
                 <button onclick="envoyerAvis(event)">Envoyé</button>
-            </div><br><br>
+            </div>
+            <br><br>
         </fieldset>
     </form>
 
